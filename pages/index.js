@@ -36,7 +36,7 @@ export default ({ rating }) => (
 async function getRating(username) {
     const res = await fetch(`https://api.chess.com/pub/player/${username}/stats`);
     const json = await res.json();
-    return json.chess_bullet.last.rating;
+    return json.chess_blitz.last.rating;
 }
 
 export async function getStaticProps() {
