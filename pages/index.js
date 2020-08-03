@@ -28,14 +28,8 @@ export default ({ rating }) => (
             <title>2300andy?</title>
             <link rel="icon" href="/botez.png" />
         </Head>
-        {rating < 2300 ? (
-            <>
-                <No />
-                <Info>it's {rating}</Info>
-            </>
-        ) : (
-            <Yes />
-        )}
+        {rating < 2300 ? <No /> : <Yes />}
+        <Info>it's {rating}</Info>
     </>
 );
 
@@ -49,7 +43,14 @@ export async function getStaticProps() {
     return {
         props: {
             rating: await getRating('alexandrabotez'),
-            unstable_revalidate: 60,
+            revalidate: 60,
         },
+    };
+}
+
+export async function getStaticPaths() {
+    return {
+        paths: [],
+        fallback: false,
     };
 }
