@@ -47,10 +47,3 @@ export async function getStaticProps() {
         },
     };
 }
-
-export async function getStaticPaths() {
-    return {
-        paths: [],
-        fallback: false,
-    };
-}
